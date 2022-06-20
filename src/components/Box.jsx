@@ -5,11 +5,11 @@ const Box = (props) => {
     let operator=['+','-','*','/','<','>','RHS Integer'];
     let color,height,width;
     if(operator.includes(title)){
-        color="red"
+        color="#E9D5CA";
         height="50px";
         width="100px";
     }else{
-        color="green";
+        color="#827397"
         height="100px";
         width="100px";
     }

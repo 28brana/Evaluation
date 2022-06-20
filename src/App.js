@@ -1,11 +1,24 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Box from './components/Box'
 import "./App.css"
+import axios from 'axios';
 const App = () => {
   const [getEval,setEval]=useState([]);
+  const [operand,setOperand]=useState([]);
   const dragIndex=useRef(null);
 
-  let operand=[{"title":"a","value":1},{"title":"b","value":2},{"title":"c","value":3},{"title":"d","value":4},{"title":"e","value":5},{"title":"f","value":6}];
+  useEffect(()=>{
+   fetchData();
+  },[]);
+  const fetchData=async()=>{
+    try{
+      const result=await axios("https://evalbackend.herokuapp.com/");
+      setOperand(result.data);
+    }catch(err){
+      console.log(err);
+    }
+  }
+  // let operand=[{"title":"a","value":1},{"title":"b","value":2},{"title":"c","value":3},{"title":"d","value":4},{"title":"e","value":5},{"title":"f","value":6}];
 
   let operator=[{"title":"+","value":"+"},{"title":"-","value":"-"},{"title":"*","value":"*"},{"title":"/","value":"/"}];
 
@@ -56,6 +69,7 @@ const App = () => {
       if(element.title ==="<" || element.title === ">"){
         return true;
       }
+      return false;
     })
     if(index===-1){
       copyList.push({"title":value,value});
@@ -81,6 +95,7 @@ const App = () => {
       if(element.title ==="RHS"){
         return true;
       }
+      return false;
     })
     if(index===-1){
       copyList.push({"title":"RHS","value":rhs});

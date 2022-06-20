@@ -16,7 +16,12 @@
 }
 
 button{
+  border:none;
+  padding: 0.5em;
+  margin: 1em 0;
   width: 100%;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  background-color: aqua;
+  background-color: #363062;
 }
