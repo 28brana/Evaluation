@@ -160,9 +160,10 @@ const App = () => {
               })
 
             }
-            
+            <span className='space'></span>
             <Box onClick={(e)=>click(e,"<")} value="<" title="<"  />
             <Box onClick={(e)=>click(e,">")} value=">" title=">"  />
+            <span className='space'></span>
             <Box onClick={handleRHS} value="RHS Integer" title="RHS Integer" />
         </div>
 

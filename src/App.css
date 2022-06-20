@@ -3,7 +3,7 @@
 }
 
 .container{
- 
+  padding: 0.5em 0;
   display: flex;
   overflow-x: scroll;
 }
@@ -24,4 +24,8 @@ button{
   font-weight: bold;
   cursor: pointer;
   background-color: #363062;
+}
+
+span{
+  width: 3em;
 }
